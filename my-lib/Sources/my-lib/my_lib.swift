@@ -1,3 +1,4 @@
-struct my_lib {
-    var text = "Hello, World!"
+public struct my_lib {
+    public var text = "Hello, World!"
+    public init() {}
 }

@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "my-app",
+    products: [
+        .executable(name: "my-cmd", targets: ["my-cmd"]),
+        ],
     dependencies: [
         .package(url: "../my-lib", .branch("master")),
         .package(url: "https://github.com/kylef/Commander", from: "0.8.0"),
@@ -20,5 +23,6 @@ let package = Package(
             path: "./Sources/my-cmd",
             sources: ["main.swift"]
         ),
-    ]
+        ]
+
 )
