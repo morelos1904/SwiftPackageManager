@@ -6,14 +6,19 @@ import PackageDescription
 let package = Package(
     name: "my-app",
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
+        .package(url: "../my-lib", .branch("master")),
+        .package(url: "https://github.com/kylef/Commander", from: "0.8.0"),
+        ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "my-app",
-            dependencies: []),
+            dependencies: ["my-lib"]
+        ),
+        .target(
+            name: "my-cmd",
+            dependencies: ["Commander"],
+            path: "./Sources/my-cmd",
+            sources: ["main.swift"]
+        ),
     ]
 )
